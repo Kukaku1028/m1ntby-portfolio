@@ -1,0 +1,393 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { SITE_CONTENT } from "@config"; // Đã import SITE_CONTENT ở đây[cite: 9]
+import "../styles/global.css";
+---
+
+<Layout>
+  {/* Khung chính mở rộng để chứa thoải mái 3 cột */}
+  <main class="max-w-[1600px] mx-auto px-8 lg:px-16 py-12 lg:py-16 flex flex-col lg:flex-row lg:gap-20 gap-12">
+
+    
+    {/* ================= CỘT TRÁI: Thông tin cá nhân & Mạng xã hội ================= */}
+  <aside class="w-full lg:w-[280px] lg:shrink-0 lg:sticky lg:top-16 h-fit flex flex-col items-start">
+    {/* Avatar */}
+    <img
+      src="/avatar.png"
+      alt="Avatar"
+      class="w-32 h-32 rounded-full object-cover border border-neutral-200/80 mb-5"
+    />
+
+    {/* Tên & Chức danh */}
+<h1 class="text-3xl font-bold tracking-tight text-neutral-900 mb-1">M1ntby</h1>
+<p class="text-sm font-normal text-neutral-500 mb-4">
+  Illustrator & Editor 
+</p>
+
+{/* Đoạn Bio chính - Đổi thành text-sm cho dễ đọc */}
+<p class="text-sm font-normal text-neutral-600 leading-relaxed mb-5">
+  Anime/VTuber-style Digital Illustrator.<br />
+  Video Editor specializing in MVs & lyric videos.
+</p>
+
+{/* Phần Tools & Trạng thái */}
+  <div class="space-y-2.5 mb-5 text-sm text-neutral-500">
+    <p><span class="text-neutral-400 font-medium">Tools:</span> Clip Studio Paint, Ibis Paint, Premiere Pro, After Effects, Aegisub</p>
+    <div>
+      <a 
+        href="https://forms.gle/VnqWV89Sg5mMKQGk6" 
+        target="_blank" 
+        class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-emerald-700 bg-emerald-50 hover:bg-emerald-100/80 border border-emerald-200/80 rounded-full transition-all shadow-2xs group"
+      >
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        Commissions: Open
+        <svg class="w-3.5 h-3.5 text-emerald-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  {/* Đường gạch ngang rút ngắn khoảng cách (my-3) */}
+  <hr class="w-full border-t border-neutral-200/60 my-3" />
+
+{/* Cụm nút CTA thon gọn, thanh thoát */}
+<div class="flex flex-wrap gap-1.5 w-full">
+    {/* Mail */}
+    <a href="mailto:mintby1j@gmail.com" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium bg-white hover:bg-neutral-50 text-neutral-600 rounded-full border border-neutral-200 transition-all shadow-2xs">
+      <svg class="w-3.5 h-3.5 text-neutral-500 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67zM22.5 6.908V6.67a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.238l10.352 6.37a1.5 1.5 0 0 0 1.576 0L22.5 6.908z"/>
+      </svg>
+      Mail
+    </a>
+    <a href="https://discord.gg/AqfZXTRq" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium bg-white hover:bg-neutral-50 text-neutral-600 rounded-full border border-neutral-200 transition-all shadow-2xs">
+      <svg class="w-3.5 h-3.5 text-neutral-500 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.213.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+      Discord
+    </a>
+    <a href="https://x.com/mintby1j" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium bg-white hover:bg-neutral-50 text-neutral-600 rounded-full border border-neutral-200 transition-all shadow-2xs">
+      <svg class="w-3.5 h-3.5 text-neutral-500 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.335L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      X
+    </a>
+    {/* Facebook */}
+    <a href="https://www.facebook.com/Rubyneko1028" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium bg-white hover:bg-neutral-50 text-neutral-600 rounded-full border border-neutral-200 transition-all shadow-2xs">
+      <svg class="w-3.5 h-3.5 text-neutral-500 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.youtube.com/@m1ntby" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium bg-white hover:bg-neutral-50 text-neutral-600 rounded-full border border-neutral-200 transition-all shadow-2xs">
+      <svg class="w-3.5 h-3.5 text-neutral-500 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      YouTube
+    </a>
+  </div>
+{/* Copyright tinh tế */}
+<div class="mt-5 text-[11px] text-neutral-400">
+  © 2026 M1ntby
+</div>
+  </aside>
+
+    
+    {/* ================= CỘT PHẢI: Danh mục bộ lọc & Lưới tác phẩm ================= */}
+    <section class="flex-1 min-w-0">
+      
+{/* Cụm nút tab phân loại chuẩn */}
+  <div class="relative flex items-center p-1 rounded-full w-fit mb-8">
+    {/* Viên thuốc nền đen trượt động */}
+    <div id="tab-pill" class="absolute top-1 left-1 h-[calc(100%-8px)] bg-black rounded-full transition-all duration-300 ease-out z-0 pointer-events-none"></div>
+
+    {/* Các nút tab */}
+    <button data-filter="all" class="tab-btn relative z-10 px-5 py-1.5 text-sm font-medium rounded-full text-neutral-500 hover:text-neutral-900 transition-colors duration-200">
+      All
+    </button>
+    <button data-filter="illustration" class="tab-btn relative z-10 px-5 py-1.5 text-sm font-medium rounded-full text-neutral-500 hover:text-neutral-900 transition-colors duration-200">
+      Illustration
+    </button>
+    <button data-filter="video" class="tab-btn relative z-10 px-5 py-1.5 text-sm font-medium rounded-full text-neutral-500 hover:text-neutral-900 transition-colors duration-200">
+      Video
+    </button>
+  </div>
+
+
+      {/* Lưới hiển thị 3 cột chuẩn Masonry */}
+  <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+    {SITE_CONTENT.projects.map((project) => (
+      <a
+        href={project.category === "video" ? project.linkPreview : "#"}
+        target={project.category === "video" ? "_blank" : undefined}
+        rel={project.category === "video" ? "noopener noreferrer" : undefined}
+        data-category={project.category}
+        data-featured={project.featured ? "true" : "false"}
+        data-image={project.image}
+        data-title={project.name}
+        class="project-card group relative block break-inside-avoid overflow-hidden rounded-2xl bg-white border border-neutral-200/80 shadow-xs cursor-pointer"
+      >
+        {/* Ảnh tác phẩm */}
+        <img
+          src={project.image}
+          alt={project.name}
+          class="w-full h-auto block transition-transform duration-500 ease-out group-hover:scale-105"
+        />
+
+        {/* Hiệu ứng Hover: Hiện tên dự án + vai trò */}
+        <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <h3 class="text-base font-bold text-white translate-y-2 transition-transform duration-300 group-hover:translate-y-0">
+            {project.name}
+          </h3>
+          <p class="text-xs font-medium text-neutral-300 translate-y-2 transition-transform duration-300 delay-75 group-hover:translate-y-0">
+            {project.summary}
+          </p>
+        </div>
+      </a>
+    ))}
+  </div>
+    </section>
+
+  </main>
+  {/* Khung Lightbox tổng hợp */}
+  <div id="image-lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-xs p-4 sm:p-8 opacity-0 transition-opacity duration-200 overflow-hidden select-none">
+    
+    {/* Nút đóng (X) ở góc trên bên phải - Dành cho Illustration */}
+    <button id="close-lightbox" aria-label="Đóng ảnh" class="absolute top-5 right-5 z-20 text-white/75 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2.5 transition-all cursor-pointer">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    {/* Giao diện 1: Dành cho Illustration (Cuộn zoom & kéo thả) */}
+    <div id="lightbox-container" class="relative hidden items-center justify-center w-full h-full cursor-grab active:cursor-grabbing">
+      <img id="lightbox-img" src="" alt="" class="max-h-[90vh] max-w-[92vw] object-contain rounded-xl shadow-2xl transition-transform duration-75 ease-out origin-center" />
+    </div>
+
+    {/* Giao diện 2: Dành cho Video YouTube + Nút X nằm ở dưới giống hình mẫu */}
+    <div id="video-lightbox-container" class="relative hidden flex-col items-center justify-center w-full h-full gap-5">
+      <div class="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-neutral-800">
+        <iframe id="youtube-iframe" src="" title="YouTube video player" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+
+      {/* Nút đóng (X) nằm ở phía dưới video - Đã bỏ hiệu ứng bóng (shadow) thừa */}
+      <button id="close-video-btn" aria-label="Đóng video" class="text-white/75 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2.5 transition-all cursor-pointer">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</Layout>
+
+{/* Đoạn mã JavaScript xử lý hiệu ứng bấm lọc danh mục */}
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>(".tab-btn");
+    const projectCards = document.querySelectorAll<HTMLElement>(".project-card");
+    const pill = document.getElementById("tab-pill") as HTMLElement;
+
+    function movePill(targetBtn: HTMLButtonElement) {
+      if (!pill) return;
+      pill.style.width = `${targetBtn.offsetWidth}px`;
+      pill.style.transform = `translateX(${targetBtn.offsetLeft - 4}px)`;
+    }
+
+    const activeBtn = document.querySelector<HTMLButtonElement>('.tab-btn[data-filter="all"]');
+
+    if (activeBtn) {
+      activeBtn.classList.add("active", "text-white");
+      activeBtn.classList.remove("text-neutral-500", "hover:text-neutral-900");
+      setTimeout(() => movePill(activeBtn), 50);
+    }
+
+    // Lọc hiển thị ban đầu
+    projectCards.forEach((card) => {
+      const isFeatured = card.getAttribute("data-featured") === "true";
+      card.style.display = isFeatured ? "block" : "none";
+    });
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.getAttribute("data-filter");
+
+        // Reset tất cả các nút về trạng thái bình thường (xám + có hiệu ứng hover đổi màu)
+        filterButtons.forEach((btn) => {
+          btn.classList.remove("active", "text-white");
+          // Thêm lại class hover chuẩn cho nút không active
+          btn.classList.add("text-neutral-500", "hover:text-neutral-900");
+        });
+
+        // Kích hoạt nút được bấm: Biến chữ thành màu trắng và QUAN TRỌNG: Xóa sạch hiệu ứng hover để không bị đen chữ
+        button.classList.add("active", "text-white");
+        button.classList.remove("text-neutral-500", "hover:text-neutral-900");
+
+        movePill(button);
+
+        // Lọc hiển thị danh sách dự án
+        projectCards.forEach((card) => {
+          const category = card.getAttribute("data-category");
+          const isFeatured = card.getAttribute("data-featured") === "true";
+
+          if (filter === "all") {
+            card.style.display = isFeatured ? "block" : "none";
+          } else {
+            card.style.display = category === filter ? "block" : "none";
+          }
+        });
+      });
+    });
+// --- Xử lý Lightbox phân tách nút đóng cho Illustration và Video ---
+    const lightbox = document.getElementById("image-lightbox");
+    const lightboxContainer = document.getElementById("lightbox-container");
+    const videoLightboxContainer = document.getElementById("video-lightbox-container");
+    const lightboxImg = document.getElementById("lightbox-img") as HTMLImageElement;
+    const youtubeIframe = document.getElementById("youtube-iframe") as HTMLIFrameElement;
+    const closeLightboxBtn = document.getElementById("close-lightbox");
+    const closeVideoBtn = document.getElementById("close-video-btn");
+
+    let scale = 1;
+    let pointX = 0;
+    let pointY = 0;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+
+    function updateTransform() {
+      if (!lightboxImg) return;
+      lightboxImg.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
+    }
+
+    function resetZoomAndPan() {
+      scale = 1;
+      pointX = 0;
+      pointY = 0;
+      updateTransform();
+    }
+
+    function getEmbedUrl(url: string) {
+      if (!url) return "";
+      let videoId = "";
+      if (url.includes("youtu.be/")) {
+        videoId = url.split("youtu.be/")[1]?.split("?")[0];
+      } else if (url.includes("watch?v=")) {
+        videoId = url.split("watch?v=")[1]?.split("&")[0];
+      }
+      return videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1` : url;
+    }
+
+    function openIllustrationLightbox(imgSrc: string, imgAlt: string) {
+      if (!lightbox || !lightboxContainer || !videoLightboxContainer || !lightboxImg || !closeLightboxBtn) return;
+      
+      lightboxContainer.classList.remove("hidden");
+      lightboxContainer.classList.add("flex");
+      videoLightboxContainer.classList.add("hidden");
+      videoLightboxContainer.classList.remove("flex");
+
+      // Hiện nút X góc trên, ẩn nút X dưới
+      closeLightboxBtn.style.display = "block";
+
+      lightboxImg.src = imgSrc;
+      lightboxImg.alt = imgAlt;
+      resetZoomAndPan();
+
+      lightbox.classList.remove("hidden");
+      lightbox.classList.add("flex");
+      requestAnimationFrame(() => {
+        lightbox.classList.remove("opacity-0");
+      });
+    }
+
+    function openVideoLightbox(videoUrl: string) {
+      if (!lightbox || !lightboxContainer || !videoLightboxContainer || !youtubeIframe || !closeLightboxBtn) return;
+
+      videoLightboxContainer.classList.remove("hidden");
+      videoLightboxContainer.classList.add("flex");
+      lightboxContainer.classList.add("hidden");
+      lightboxContainer.classList.remove("flex");
+
+      // Ẩn nút X góc trên, để lộ hoàn toàn giao diện player video và nút X ở dưới
+      closeLightboxBtn.style.display = "none";
+
+      youtubeIframe.src = getEmbedUrl(videoUrl);
+
+      lightbox.classList.remove("hidden");
+      lightbox.classList.add("flex");
+      requestAnimationFrame(() => {
+        lightbox.classList.remove("opacity-0");
+      });
+    }
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.add("opacity-0");
+      setTimeout(() => {
+        lightbox.classList.add("hidden");
+        lightbox.classList.remove("flex");
+        if (lightboxImg) lightboxImg.src = "";
+        if (youtubeIframe) youtubeIframe.src = "";
+        resetZoomAndPan();
+      }, 200);
+    }
+
+    // Cuộn chuột Zoom ảnh
+    lightboxContainer?.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      const zoomIntensity = 0.15;
+      if (e.deltaY < 0) {
+        scale = Math.min(scale + zoomIntensity, 5);
+      } else {
+        scale = Math.max(scale - zoomIntensity, 1);
+        if (scale === 1) {
+          pointX = 0;
+          pointY = 0;
+        }
+      }
+      updateTransform();
+    }, { passive: false });
+
+    // Kéo thả ảnh khi zoom
+    lightboxContainer?.addEventListener("mousedown", (e) => {
+      if (scale > 1) {
+        isDragging = true;
+        startX = e.clientX - pointX;
+        startY = e.clientY - pointY;
+        e.preventDefault();
+      }
+    });
+
+    lightboxContainer?.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      pointX = e.clientX - startX;
+      pointY = e.clientY - startY;
+      updateTransform();
+    });
+
+    lightboxContainer?.addEventListener("mouseup", () => { isDragging = false; });
+    lightboxContainer?.addEventListener("mouseleave", () => { isDragging = false; });
+
+    // Lắng nghe click trên card dự án
+    projectCards.forEach((card) => {
+      card.addEventListener("click", (e) => {
+        const category = card.getAttribute("data-category");
+        e.preventDefault();
+
+        if (category === "illustration") {
+          const imgSrc = card.getAttribute("data-image") || "";
+          const imgTitle = card.getAttribute("data-title") || "";
+          openIllustrationLightbox(imgSrc, imgTitle);
+        } else if (category === "video") {
+          const videoUrl = card.getAttribute("href") || "";
+          openVideoLightbox(videoUrl);
+        }
+      });
+    });
+
+    closeLightboxBtn?.addEventListener("click", closeLightbox);
+    closeVideoBtn?.addEventListener("click", closeLightbox);
+    
+    lightbox?.addEventListener("click", (e) => {
+      if (e.target === lightbox || e.target === lightboxContainer || e.target === videoLightboxContainer) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox && !lightbox.classList.contains("hidden")) {
+        closeLightbox();
+      }
+    });
+  });
+</script>
