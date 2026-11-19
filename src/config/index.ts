@@ -117,7 +117,7 @@ export const SITE_CONTENT: SiteContent = {
       name: "September San (Amatsuki  Cover)",
       summary: "Role: Illustrator ",
       image: "/septembersan.png",
-      linkPreview: "https://youtu.be/uU97xblvYsQ",
+      linkPreview: "https://youtu.be/_6GIjEN36OU",
       category: "video",
       featured: false,
     },
