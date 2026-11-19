@@ -279,7 +279,7 @@ import "../styles/global.css";
       setTimeout(() => movePill(activeBtn), 50);
     }
 const featuredHighlights = document.getElementById("featured-highlights");
-    function updateFeaturedHighlights(filter) {
+    function updateFeaturedHighlights(filter: string | null) {
       if (!featuredHighlights) return;
       featuredHighlights.style.display = filter === "all" ? "block" : "none";
     }
