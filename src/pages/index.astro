@@ -47,6 +47,14 @@ import "../styles/global.css";
       </a>
     </div>
   </div>
+<button
+  id="open-about-modal"
+  type="button"
+  class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-700 hover:text-neutral-950 transition-colors cursor-pointer"
+>
+  <span>About me</span>
+  <span aria-hidden="true">›</span>
+</button>
 
   {/* Đường gạch ngang rút ngắn khoảng cách (my-3) */}
   <hr class="w-full border-t border-neutral-200/60 my-3" />
@@ -108,28 +116,6 @@ import "../styles/global.css";
       Video
     </button>
   </div>
-
-{/* Khối Highlights chỉ hiện ở tab Featured */}
-      <div
-        id="featured-highlights"
-        class="mb-6 rounded-xl bg-neutral-50/90 border border-neutral-200/70 p-3.5 space-y-2 text-xs text-neutral-600 leading-relaxed"
-      >
-        <div>
-          <span class="font-semibold text-neutral-800">MV Editor</span>
-          <span class="text-neutral-400"> — </span>
-          <span>Directed &amp; edited Amane Kanata Graduation Fanmade MV (10+ collaborators, 15K+ views).</span>
-        </div>
-        <div>
-          <span class="font-semibold text-neutral-800">Lyric Video &amp; Subtitling</span>
-          <span class="text-neutral-400"> — </span>
-          <span>Produced &amp; timed Vietnamese-subtitled lyric videos (<em>Your Petal</em>, <em>Newton</em>, <em>Kyun Kyun MIKO Kyun kyun♡</em>).</span>
-        </div>
-        <div>
-          <span class="font-semibold text-neutral-800">Community Founder &amp; Event Host</span>
-          <span class="text-neutral-400"> — </span>
-          <span>Founder of MCS; organized &amp; designed print assets for an offline Hololive Fan Viewing Party in Ho Chi Minh City.</span>
-        </div>
-      </div>
 
       {/* Lưới hiển thị 3 cột chuẩn Masonry */}
   <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
@@ -266,6 +252,64 @@ import "../styles/global.css";
       </div>
     </div>
   </div>
+{/* Modal About me & Thành tựu */}
+<div
+  id="about-modal"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-xs p-4 opacity-0 transition-opacity duration-200"
+>
+  <div class="relative w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl border border-neutral-200 text-left overflow-hidden">
+    {/* Nút đóng X */}
+    <button
+      id="close-about-modal"
+      type="button"
+      aria-label="Đóng"
+      class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-700 p-1 rounded-full hover:bg-neutral-100 transition-colors cursor-pointer"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    {/* Phần 1: Giới thiệu */}
+    <div class="space-y-2.5 pr-6 pb-4">
+      <div class="flex items-center gap-2">
+        <span class="inline-block rounded-md bg-teal-50 px-2 py-0.5 text-[10px] font-semibold tracking-wider text-teal-700 border border-teal-200/80">
+          PORTFOLIO BIO
+        </span>
+      </div>
+      <h3 class="text-lg font-bold text-neutral-900">About me</h3>
+      <p class="text-xs sm:text-sm leading-relaxed text-neutral-700">
+        Hi! I&apos;m <strong class="font-semibold text-neutral-900">M1ntby (Ruby)</strong> — an anime/VTuber-style illustrator &amp; video editor crafting expressive character art, lyric videos, and fan community visuals.
+      </p>
+    </div>
+
+    {/* Viền ngang phân chia 1 */}
+    <div class="border-t border-neutral-300 py-4 space-y-2.5 text-xs sm:text-[13px] leading-relaxed text-neutral-700">
+      <p>
+        <strong class="font-semibold text-neutral-900">MV Director &amp; Editor</strong> — Directed &amp; edited Amane Kanata Graduation Fanmade MV (10+ collaborators, <strong class="font-medium text-neutral-900">15K+ views</strong>)
+      </p>
+      <p>
+        <strong class="font-semibold text-neutral-900">Lyric Video &amp; Subtitling</strong> — Produced &amp; timed Vietnamese-subtitled lyric videos (<em class="italic">Your Petal</em>, <em class="italic">Newton</em>, <em class="italic">Kyun Kyun MIKO Kyun kyun♡</em>).
+      </p>
+      <p>
+        <strong class="font-semibold text-neutral-900">Community Founder &amp; Event Host</strong> — Founder of <strong class="font-medium text-neutral-900">Tram Tinh Dao MiComet (MCS)</strong>; organized &amp; designed print assets for an offline Hololive Fan Viewing Party in <em class="italic">HCMC</em>.
+      </p>
+    </div>
+
+    {/* Viền ngang phân chia 2 + Ngôn ngữ */}
+    <div class="border-t border-neutral-300 pt-4 space-y-2.5">
+      <p class="text-xs font-semibold text-neutral-900">Languages</p>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <span class="rounded-lg border border-neutral-300 hover:border-teal-400 bg-white px-3 py-1.5 text-neutral-800 transition-colors">
+          Vietnamese <span class="text-neutral-500">· Native</span>
+        </span>
+        <span class="rounded-lg border border-neutral-300 hover:border-teal-400 bg-white px-3 py-1.5 text-neutral-800 transition-colors">
+          English <span class="text-neutral-500">• Basic / Conversational</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
 </Layout>
 
 {/* Đoạn mã JavaScript xử lý hiệu ứng bấm lọc danh mục */}
@@ -288,12 +332,6 @@ import "../styles/global.css";
       activeBtn.classList.remove("text-neutral-500", "hover:text-neutral-900");
       setTimeout(() => movePill(activeBtn), 50);
     }
-const featuredHighlights = document.getElementById("featured-highlights");
-    function updateFeaturedHighlights(filter: string | null) {
-      if (!featuredHighlights) return;
-      featuredHighlights.style.display = filter === "all" ? "block" : "none";
-    }
-    updateFeaturedHighlights("all");
     // Lọc hiển thị ban đầu
     projectCards.forEach((card) => {
       const isFeatured = card.getAttribute("data-featured") === "true";
@@ -303,7 +341,6 @@ const featuredHighlights = document.getElementById("featured-highlights");
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const filter = button.getAttribute("data-filter");
-        updateFeaturedHighlights(filter);
 
         // Reset tất cả các nút về trạng thái bình thường (xám + có hiệu ứng hover đổi màu)
         filterButtons.forEach((btn) => {
@@ -618,5 +655,41 @@ function closeLightbox() {
         openCardAt(currentCardIndex + 1);
       }
     });
+  const aboutModal = document.getElementById("about-modal");
+    const openAboutBtn = document.getElementById("open-about-modal");
+    const closeAboutBtn = document.getElementById("close-about-modal");
+
+    function openAboutModal() {
+      if (!aboutModal) return;
+      aboutModal.classList.remove("hidden");
+      aboutModal.classList.add("flex");
+      requestAnimationFrame(() => {
+        aboutModal.classList.remove("opacity-0");
+      });
+    }
+
+    function closeAboutModal() {
+      if (!aboutModal) return;
+      aboutModal.classList.add("opacity-0");
+      setTimeout(() => {
+        aboutModal.classList.add("hidden");
+        aboutModal.classList.remove("flex");
+      }, 200);
+    }
+
+    openAboutBtn?.addEventListener("click", openAboutModal);
+    closeAboutBtn?.addEventListener("click", closeAboutModal);
+
+    aboutModal?.addEventListener("click", (e) => {
+      if (e.target === aboutModal) {
+        closeAboutModal();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && aboutModal && !aboutModal.classList.contains("hidden")) {
+        closeAboutModal();
+      }
+    });  
   });
 </script>
