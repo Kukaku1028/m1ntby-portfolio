@@ -88,6 +88,51 @@ export const SITE_CONTENT: SiteContent = {
       featured: false,
     },
     {
+      name: "Say It!",
+      summary: "Sketch Animatic",
+      image: "/sayit.png",
+      linkPreview: "https://youtu.be/HrfSEYCF-5s",
+      category: "video",
+      featured: false,
+    },
+  
+    {
+      name: "Betelgeuse (Miko Cover)",
+      summary: "Role: Illustrator ",
+      image: "/betelgeuse.png",
+      linkPreview: "https://youtu.be/uU97xblvYsQ",
+      category: "video",
+      featured: false,
+    },
+    {
+      name: "One, Two, Three Nyako",
+      summary: "Animation",
+      image: "/nyako.png",
+      linkPreview: "https://youtube.com/shorts/YpXhYlbBi48",
+      category: "video",
+      featured: false,
+    },
+    
+   {
+      name: "September San (Amatsuki  Cover)",
+      summary: "Role: Illustrator ",
+      image: "/septembersan.png",
+      linkPreview: "https://youtu.be/uU97xblvYsQ",
+      category: "video",
+      featured: false,
+    },
+ 
+{
+      name: "Suisei Cat",
+      summary: "Motion Comic",
+      image: "/suiseicat.png",
+      linkPreview: "https://youtube.com/shorts/Wqu-FEjWZP8",
+      category: "video",
+      featured: false,
+    },
+
+   
+    {
       name: "New York City",
       summary: "Chibi Full Scene",
       image: "/tranh2.png",

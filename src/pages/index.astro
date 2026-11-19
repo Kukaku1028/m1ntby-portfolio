@@ -109,6 +109,27 @@ import "../styles/global.css";
     </button>
   </div>
 
+{/* Khối Highlights chỉ hiện ở tab Featured */}
+      <div
+        id="featured-highlights"
+        class="mb-6 rounded-xl bg-neutral-50/90 border border-neutral-200/70 p-3.5 space-y-2 text-xs text-neutral-600 leading-relaxed"
+      >
+        <div>
+          <span class="font-semibold text-neutral-800">MV Editor</span>
+          <span class="text-neutral-400"> — </span>
+          <span>Directed &amp; edited Amane Kanata Graduation Fanmade MV (10+ collaborators, 15K+ views).</span>
+        </div>
+        <div>
+          <span class="font-semibold text-neutral-800">Lyric Video &amp; Subtitling</span>
+          <span class="text-neutral-400"> — </span>
+          <span>Produced &amp; timed Vietnamese-subtitled lyric videos (<em>Your Petal</em>, <em>Newton</em>, <em>きゅんきゅんみこきゅんきゅん♡</em>).</span>
+        </div>
+        <div>
+          <span class="font-semibold text-neutral-800">Community Founder &amp; Event Host</span>
+          <span class="text-neutral-400"> — </span>
+          <span>Founder of MCS; organized &amp; designed print assets for an offline Hololive Fan Viewing Party in Ho Chi Minh City.</span>
+        </div>
+      </div>
 
       {/* Lưới hiển thị 3 cột chuẩn Masonry */}
   <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
@@ -154,7 +175,29 @@ import "../styles/global.css";
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
+{/* Nút chuyển ảnh / video trước đó (bên trái) */}
+  <button
+    id="lightbox-prev"
+    type="button"
+    aria-label="Mục trước"
+    class="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white backdrop-blur-xs transition-all cursor-pointer select-none"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
 
+  {/* Nút chuyển ảnh / video tiếp theo (bên phải) */}
+  <button
+    id="lightbox-next"
+    type="button"
+    aria-label="Mục tiếp theo"
+    class="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white backdrop-blur-xs transition-all cursor-pointer select-none"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
     {/* Giao diện 1: Dành cho Illustration (Cuộn zoom & kéo thả) */}
     <div id="lightbox-container" class="relative hidden items-center justify-center w-full h-full cursor-grab active:cursor-grabbing">
       <img id="lightbox-img" src="" alt="" class="max-h-[90vh] max-w-[92vw] object-contain rounded-xl shadow-2xl transition-transform duration-75 ease-out origin-center" />
@@ -235,7 +278,12 @@ import "../styles/global.css";
       activeBtn.classList.remove("text-neutral-500", "hover:text-neutral-900");
       setTimeout(() => movePill(activeBtn), 50);
     }
-
+const featuredHighlights = document.getElementById("featured-highlights");
+    function updateFeaturedHighlights(filter) {
+      if (!featuredHighlights) return;
+      featuredHighlights.style.display = filter === "all" ? "block" : "none";
+    }
+    updateFeaturedHighlights("all");
     // Lọc hiển thị ban đầu
     projectCards.forEach((card) => {
       const isFeatured = card.getAttribute("data-featured") === "true";
@@ -245,6 +293,7 @@ import "../styles/global.css";
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const filter = button.getAttribute("data-filter");
+        updateFeaturedHighlights(filter);
 
         // Reset tất cả các nút về trạng thái bình thường (xám + có hiệu ứng hover đổi màu)
         filterButtons.forEach((btn) => {
@@ -468,6 +517,60 @@ import "../styles/global.css";
         if (copyEmailText) copyEmailText.textContent = "Copied to clipboard!";
       } catch (err) {
         if (copyEmailText) copyEmailText.textContent = "mintby1j@gmail.com";
+      }
+    });
+    // --- Nút mũi tên chuyển ảnh / video trong Lightbox ---
+    const prevLightboxBtn = document.getElementById("lightbox-prev");
+    const nextLightboxBtn = document.getElementById("lightbox-next");
+    let currentCardIndex = -1;
+
+    function getVisibleCards() {
+      return Array.from(projectCards).filter((card) => card.style.display !== "none");
+    }
+
+    function openCardAt(index: number) {
+      const visibleCards = getVisibleCards();
+      if (!visibleCards.length) return;
+
+      currentCardIndex = (index + visibleCards.length) % visibleCards.length;
+      const targetCard = visibleCards[currentCardIndex];
+      const category = targetCard.getAttribute("data-category");
+
+      resetZoomAndPan();
+
+      if (category === "illustration") {
+        const imgSrc = targetCard.getAttribute("data-image") || "";
+        const imgTitle = targetCard.getAttribute("data-title") || "";
+        openIllustrationLightbox(imgSrc, imgTitle);
+      } else if (category === "video") {
+        const videoUrl = targetCard.getAttribute("href") || "";
+        openVideoLightbox(videoUrl);
+      }
+    }
+
+    projectCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const visibleCards = getVisibleCards();
+        currentCardIndex = visibleCards.indexOf(card);
+      });
+    });
+
+    prevLightboxBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openCardAt(currentCardIndex - 1);
+    });
+
+    nextLightboxBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openCardAt(currentCardIndex + 1);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox || lightbox.classList.contains("hidden")) return;
+      if (e.key === "ArrowLeft") {
+        openCardAt(currentCardIndex - 1);
+      } else if (e.key === "ArrowRight") {
+        openCardAt(currentCardIndex + 1);
       }
     });
   });
